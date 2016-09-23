@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="calendarApp">
+  <head>
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ng-basic-calendar-layout.css">
+    <link rel="stylesheet" href="ng-basic-calendar-theme.css">
+    <style>
+    .test {
+      font-size: 20px;
+    }
+    .fake {
+      color: red;
+    }
+    </style>
+  </head>
+  <body ng-controller="CalendarCtrl">
+    <div>
+      <div>
+        <h4 class="text-center">{{ start | amDateFormat:'MMMM D' }} -
+        {{ end | amDateFormat:'MMMM D' }}
+        </h4>
+
+        <basic-calendar
+          start-week="start"
+          end-week="end"
+          events="events"
+          select-event="selectEvent(event)">
+        </basic-calendar>
+
+        <button ng-click="events.shift();">remove</button>
+        <button ng-click="events[0].title='h@ck3d';">rename</button>
+        <pre>{{selectedEvent | json}}</pre>
+      </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.0-beta.6/angular-moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.15.0/lodash.min.js"></script>
+    <script src="ng-basic-calendar.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>

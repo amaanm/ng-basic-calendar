@@ -1,0 +1,35 @@
+{
+  "name": "ng-basic-calendar",
+  "version": "1.0.0",
+  "description": "A very barebones calendar directive for AngularJS 1",
+  "main": "src/ng-basic-calendar.js",
+  "scripts": {
+    "test": "karma start --single-run",
+    "start": "gulp serve",
+    "postinstall": "bower install"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "calendar",
+    "directive",
+    "basic",
+    "simple"
+  ],
+  "author": "Amaan M",
+  "license": "MIT",
+  "devDependencies": {
+    "angular-mocks": "^1.5.8",
+    "gulp": "^3.9.1",
+    "gulp-serve": "^1.4.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2"
+  },
+  "dependencies": {
+    "angular-moment": "^1.0.0-beta.6",
+    "lodash": "^4.16.1"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "ng-basic-calendar",
+  "description": "A very barebones calendar directive for AngularJS 1",
+  "main": "src/ng-basic-calendar.js",
+  "authors": [
+    "Amaan M"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "calendar",
+    "directive",
+    "basic",
+    "simple"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "angular-moment": "^0.10.3",
+    "lodash": "^4.16.1"
+  },
+  "resolutions": {
+    "angular": "1.5.8"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.8"
+  }
+}

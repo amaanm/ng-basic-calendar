@@ -1,0 +1,35 @@
+.calendar {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+.week {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+}
+.day {
+  flex-basis: 14.28%;
+  flex-shrink: 1;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.dayIndicator {
+
+}
+.dayIndicator.today {
+
+}
+.dayEvents {
+  display:flex;
+  flex-direction: column;
+}
+
+.event {
+  flex-shrink: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
