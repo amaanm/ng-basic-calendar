@@ -16,7 +16,7 @@
   ],
   "moduleType": [],
   "homepage": "",
-  "private": true,
+  "private": false,
   "dependencies": {
     "angular-moment": "^0.10.3",
     "lodash": "^4.16.1"
