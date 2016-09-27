@@ -14,7 +14,7 @@ describe('ngBasicCalendar', function () {
     var elt = angular.element('<basic-calendar></basic-calendar>');
     $compile(elt)($rootScope);
     $rootScope.$digest();
-    
+
     expect(elt.html().trim()).toBe('<div class="calendar"><!-- ngRepeat: week in calendar --></div>');
   });
 
@@ -130,6 +130,28 @@ describe('ngBasicCalendar', function () {
 
     angular.element(events[0]).triggerHandler('click');
     expect($rootScope.testHandler).toHaveBeenCalledWith($rootScope.events[0]);
+  });
+
+  it('should order elements correctly', function(){
+    $rootScope.start = moment('2016-01-01', 'YYYY-MM-DD');
+    $rootScope.end   = moment('2016-01-01', 'YYYY-MM-DD');
+    $rootScope.orderBy = 'title';
+    $rootScope.events = [
+      {start: moment('2016-01-01', 'YYYY-MM-DD'), title: 'New Year\'s Day'},
+      {start: moment('2016-01-01', 'YYYY-MM-DD'), title: 'First day of the year'}
+    ];
+
+    var elt = $compile('<basic-calendar start-week="start" end-week="end" events="events" order-by="orderBy"></basic-calendar>')($rootScope);
+    $rootScope.$digest();
+
+    var events = _.values(elt.find('div')).filter(function(el){return angular.element(el).hasClass('event');});
+    expect(angular.element(events[0]).html()).toEqual('First day of the year');
+
+    $rootScope.orderBy = '-title';
+    $rootScope.$digest();
+
+    var events = _.values(elt.find('div')).filter(function(el){return angular.element(el).hasClass('event');});
+    expect(angular.element(events[0]).html()).toEqual('New Year\'s Day');
   });
 
 });

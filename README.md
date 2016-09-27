@@ -33,7 +33,8 @@ Add the directive to a page:
   start-week="start"
   end-week="end"
   events="events"
-  select-event="selectEvent(event)">
+  select-event="selectEvent(event)"
+  order-by="['start','title']">
 </basic-calendar>
 ```
 Example parameters:
@@ -60,10 +61,12 @@ basic-calendar takes the following attributes:
     - `start` which should be a [MomentJS](http://momentjs.com/) object specifying what date the event occurs on (currently only single-day events are supported).
     - `title` which sets the displayed text in the calendar for that event.
     - `classes` is passed to the [ngClass](https://docs.angularjs.org/api/ng/directive/ngClass) directive for the event. Use this to customize your events.
+- `order-by` is passed directly to the [orderBy](https://docs.angularjs.org/api/ng/filter/orderBy) Angular filter for each calendar day.
 
 ## Todo
 - Clean up tests
 - Improve the calendar visually (month labels, day labels, etc.)
+- Loosen dependencies on angular-moment
 
 ## Development  
 1. Clone this repo  

@@ -7,6 +7,7 @@ angular.module('basicCalendar', [])
         startWeek: '=',
         endWeek: '=',
         events: '=',
+        orderBy: '=',
         selectEvent:'&'
       },
       link: function(scope, elem, attrs){
@@ -50,7 +51,7 @@ angular.module('basicCalendar', [])
 {{ day.date | amDateFormat:\'D\'}}\
 </span>\
 <div class="dayEvents">\
-<div class="event" ng-repeat="event in day.events" ng-class="event.classes" ng-click="$parent.selectEvent({event: event})">\
+<div class="event" ng-repeat="event in day.events | orderBy: orderBy" ng-class="event.classes" ng-click="$parent.selectEvent({event: event})">\
 {{ event.title }}\
 </div>\
 </div>\
