@@ -154,4 +154,38 @@ describe('ngBasicCalendar', function () {
     expect(angular.element(events[0]).html()).toEqual('New Year\'s Day');
   });
 
+  it('should apply the provided string filter', function(){
+    $rootScope.start = moment('2016-01-01', 'YYYY-MM-DD');
+    $rootScope.end   = moment('2016-01-01', 'YYYY-MM-DD');
+    $rootScope.events = [
+      {start: moment('2016-01-01', 'YYYY-MM-DD'), title: 'New Year\'s Day'},
+      {start: moment('2016-01-01', 'YYYY-MM-DD'), title: 'First day of the year'}
+    ];
+
+    var elt = $compile('<basic-calendar start-week="start" end-week="end" events="events" filter="toFilter"></basic-calendar>')($rootScope);
+    $rootScope.toFilter = 'First';
+    $rootScope.$digest();
+
+    var events = _.values(elt.find('div')).filter(function(el){return angular.element(el).hasClass('event');});
+    expect(angular.element(events[0]).html()).toEqual('First day of the year');
+  });
+
+  it('should apply the provided function filter', function(){
+    $rootScope.start = moment('2016-01-01', 'YYYY-MM-DD');
+    $rootScope.end   = moment('2016-01-01', 'YYYY-MM-DD');
+    $rootScope.events = [
+      {start: moment('2016-01-01', 'YYYY-MM-DD'), title: 'New Year\'s Day'},
+      {start: moment('2016-01-01', 'YYYY-MM-DD'), title: 'First day of the year'}
+    ];
+
+    var elt = $compile('<basic-calendar start-week="start" end-week="end" events="events" filter="toFilter"></basic-calendar>')($rootScope);
+    $rootScope.toFilter = function(el){
+      return el.title === 'First day of the year';
+    };
+    $rootScope.$digest();
+
+    var events = _.values(elt.find('div')).filter(function(el){return angular.element(el).hasClass('event');});
+    expect(angular.element(events[0]).html()).toEqual('First day of the year');
+  });
+
 });

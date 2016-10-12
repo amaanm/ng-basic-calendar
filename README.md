@@ -34,7 +34,8 @@ Add the directive to a page:
   end-week="end"
   events="events"
   select-event="selectEvent(event)"
-  order-by="['start','title']">
+  order-by="['start','title']"
+  filter="'search text'">
 </basic-calendar>
 ```
 Example parameters:
@@ -62,6 +63,7 @@ basic-calendar takes the following attributes:
     - `title` which sets the displayed text in the calendar for that event.
     - `classes` is passed to the [ngClass](https://docs.angularjs.org/api/ng/directive/ngClass) directive for the event. Use this to customize your events.
 - `order-by` is passed directly to the [orderBy](https://docs.angularjs.org/api/ng/filter/orderBy) Angular filter for each calendar day.
+- `filter` is passed directly to the [filter](https://docs.angularjs.org/api/ng/filter/filter) Angular filter for each calendar day.
 
 ## Todo
 - Clean up tests

@@ -25,12 +25,15 @@
           end-week="end"
           events="events"
           select-event="selectEvent(event)"
-          order-by="['start','title']">
+          order-by="['start','title']"
+          filter="search">
         </basic-calendar>
 
         <button ng-click="events.shift();">remove</button>
         <button ng-click="events[0].title='h@ck3d';">rename</button>
         <pre>{{selectedEvent | json}}</pre>
+        <br>
+        <p>Filter: <input type="text" ng-model="search"></p>
       </div>
     </div>
 
