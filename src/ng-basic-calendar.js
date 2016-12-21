@@ -38,7 +38,7 @@ angular.module('basicCalendar', [])
             }
 
             var calendar = _.groupBy(days, function(el){
-              return el.date.week();
+              return el.date.format('YYYYww');
             });
 
             scope.calendar = _.values(calendar);

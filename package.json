@@ -1,6 +1,6 @@
 {
   "name": "ng-basic-calendar",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A very barebones calendar directive for AngularJS 1",
   "main": "src/ng-basic-calendar.js",
   "scripts": {
